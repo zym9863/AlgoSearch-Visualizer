@@ -117,6 +117,7 @@ class PerformanceTester:
                 print(f"测试出错: {e}")
                 continue
         
+        metrics.calculate_statistics()
         return metrics
     
     def batch_test(self, algorithms: List[str], data_structure_types: List[str],
