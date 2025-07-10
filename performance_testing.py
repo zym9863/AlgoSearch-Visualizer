@@ -174,7 +174,8 @@ class PerformanceTester:
         # 按数据结构和大小分组
         groups = {}
         for key, metrics in self.results.items():
-            algorithm, ds_type, size = key.split('_')
+            # 修复：支持带下划线的algorithm和ds_type
+            algorithm, ds_type, size = key.rsplit('_', 2)
             group_key = f"{ds_type}_{size}"
             
             if group_key not in groups:
